@@ -30,6 +30,8 @@ module.exports = function loadCSV(
     if (index === 0) {
       return row;
     }
+    // if in options.converters there is a function for the given column
+    // header[index] then apply the converting function
     return _.map(row, (element, index) => {
       if (converters[headers[index]]) {
         const converted = converters[headers[index]](element);
